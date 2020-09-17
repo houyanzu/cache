@@ -157,7 +157,7 @@ func (rc *Cache) ClearAll() error {
 // so no gc operation.
 func (rc *Cache) StartAndGC(config string) error {
 	var cf map[string]string
-	json.Unmarshal([]byte(config), &cf)
+	_ = json.Unmarshal([]byte(config), &cf)
 
 	if _, ok := cf["key"]; !ok {
 		cf["key"] = DefaultKey
