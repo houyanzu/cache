@@ -1,4 +1,4 @@
-module cache
+module github.com/houyanzu/cache
 
 go 1.14
 
