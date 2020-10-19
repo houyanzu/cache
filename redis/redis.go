@@ -39,7 +39,7 @@ import (
 
 	"github.com/gomodule/redigo/redis"
 
-	"github/houyanzu/cache"
+	"github.com/houyanzu/cache"
 	"strings"
 )
 
