@@ -35,7 +35,7 @@ import (
 	"strings"
 	"time"
 
-	"cache"
+	"github/houyanzu/cache"
 	"github.com/bradfitz/gomemcache/memcache"
 )
 
