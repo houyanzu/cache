@@ -22,6 +22,7 @@
 // import(
 //   _ "github.com/astaxie/beego/cache/redis"
 //   "github.com/astaxie/beego/cache"
+//
 // )
 //
 //  bm, err := cache.NewCache("redis", `{"conn":"127.0.0.1:11211"}`)
