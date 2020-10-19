@@ -35,7 +35,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/astaxie/beego/cache"
+	"cache"
 	"github.com/bradfitz/gomemcache/memcache"
 )
 

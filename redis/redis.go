@@ -38,7 +38,7 @@ import (
 
 	"github.com/gomodule/redigo/redis"
 
-	"github.com/astaxie/beego/cache"
+	"cache"
 	"strings"
 )
 
