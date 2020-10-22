@@ -76,8 +76,9 @@ func (rc *Cache) do(commandName string, args ...interface{}) (reply interface{},
 
 // associate with config key.
 func (rc *Cache) associate(originKey interface{}) string {
-	if originKey == "" {
-		return fmt.Sprintf("%v", originKey)
+	originKeyStr, ok := originKey.(string)
+	if ok && originKeyStr == "" {
+		return originKeyStr
 	}
 	return fmt.Sprintf("%s:%s", rc.key, originKey)
 }
