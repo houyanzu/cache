@@ -22,7 +22,6 @@
 // import(
 //   _ "github.com/astaxie/beego/cache/redis"
 //   "github.com/astaxie/beego/cache"
-//
 // )
 //
 //  bm, err := cache.NewCache("redis", `{"conn":"127.0.0.1:11211"}`)
@@ -38,8 +37,8 @@ import (
 	"time"
 
 	"github.com/gomodule/redigo/redis"
+	"github.com/dp1993132/cache"
 
-	"github.com/houyanzu/cache"
 	"strings"
 )
 
@@ -77,6 +76,9 @@ func (rc *Cache) do(commandName string, args ...interface{}) (reply interface{},
 
 // associate with config key.
 func (rc *Cache) associate(originKey interface{}) string {
+	if originKey == "" {
+		return fmt.Sprintf("%v", originKey)
+	}
 	return fmt.Sprintf("%s:%s", rc.key, originKey)
 }
 

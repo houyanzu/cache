@@ -1,6 +1,6 @@
-module cache
+module github.com/dp1993132/cache
 
-go 1.14
+go 1.13
 
 require (
 	github.com/astaxie/beego v1.12.2
