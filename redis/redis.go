@@ -67,7 +67,7 @@ func (rc *Cache) do(commandName string, args ...interface{}) (reply interface{},
 	if len(args) < 1 {
 		return nil, errors.New("missing required arguments")
 	}
-	args[0] = rc.associate(args[0])
+	//args[0] = rc.associate(args[0])
 	c := rc.p.Get()
 	defer c.Close()
 
@@ -96,9 +96,9 @@ func (rc *Cache) GetMulti(keys []string) []interface{} {
 	c := rc.p.Get()
 	defer c.Close()
 	var args []interface{}
-	for _, key := range keys {
-		args = append(args, rc.associate(key))
-	}
+	//for _, key := range keys {
+	//	args = append(args, rc.associate(key))
+	//}
 	values, err := redis.Values(c.Do("MGET", args...))
 	if err != nil {
 		return nil
