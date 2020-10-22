@@ -37,7 +37,7 @@ import (
 	"time"
 
 	"github.com/gomodule/redigo/redis"
-	"github.com/dp1993132/cache"
+	"github.com/houyanzu/cache"
 
 	"strings"
 )
