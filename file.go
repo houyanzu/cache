@@ -163,6 +163,10 @@ func (fc *FileCache) Put(key string, val interface{}, timeout time.Duration) err
 	return FilePutContents(fc.getCacheFileName(key), data)
 }
 
+func (fc *FileCache) SetNX(key string, timeout time.Duration) (bool, error) {
+	return false, nil
+}
+
 // Delete file cache value.
 func (fc *FileCache) Delete(key string) error {
 	filename := fc.getCacheFileName(key)

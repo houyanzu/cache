@@ -35,8 +35,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/houyanzu/cache"
 	"github.com/bradfitz/gomemcache/memcache"
+	"github.com/houyanzu/cache"
 )
 
 // Cache Memcache adapter.
@@ -104,6 +104,10 @@ func (rc *Cache) Put(key string, val interface{}, timeout time.Duration) error {
 		return errors.New("val only support string and []byte")
 	}
 	return rc.conn.Set(&item)
+}
+
+func (rc *Cache) SetNX(key string, timeout time.Duration) (bool, error) {
+	return false, nil
 }
 
 // Delete delete value in memcache.

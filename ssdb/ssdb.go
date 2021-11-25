@@ -102,6 +102,10 @@ func (rc *Cache) Put(key string, value interface{}, timeout time.Duration) error
 	return errors.New("bad response")
 }
 
+func (rc *Cache) SetNX(key string, timeout time.Duration) (bool, error) {
+	return false, nil
+}
+
 // Delete delete value in memcache.
 func (rc *Cache) Delete(key string) error {
 	if rc.conn == nil {

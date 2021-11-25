@@ -112,6 +112,18 @@ func (rc *Cache) Put(key string, val interface{}, timeout time.Duration) error {
 	return err
 }
 
+func (rc *Cache) SetNX(key string, timeout time.Duration) (bool, error) {
+	//设置锁key-value和过期时间
+	_, err := redis.String(rc.do("SET", key, 1, "EX", timeout, "NX"))
+	if err != nil {
+		if err == redis.ErrNil {
+			return false, nil
+		}
+		return false, err
+	}
+	return true, nil
+}
+
 // Delete delete cache in redis.
 func (rc *Cache) Delete(key string) error {
 	_, err := rc.do("DEL", key)
