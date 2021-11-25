@@ -93,6 +93,10 @@ func (bc *MemoryCache) Put(name string, value interface{}, lifespan time.Duratio
 	return nil
 }
 
+func (bc *MemoryCache) SetNX(key string, timeout time.Duration) (bool, error) {
+	return false, nil
+}
+
 // Delete cache in memory.
 func (bc *MemoryCache) Delete(name string) error {
 	bc.Lock()
