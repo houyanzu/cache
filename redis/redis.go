@@ -145,9 +145,19 @@ func (rc *Cache) Incr(key string) error {
 	return err
 }
 
+func (rc *Cache) IncrValue(key string, value uint64) error {
+	_, err := redis.Bool(rc.do("INCRBY", key, value))
+	return err
+}
+
 // Decr decrease counter in redis.
 func (rc *Cache) Decr(key string) error {
 	_, err := redis.Bool(rc.do("INCRBY", key, -1))
+	return err
+}
+
+func (rc *Cache) DecrValue(key string, value uint64) error {
+	_, err := redis.Bool(rc.do("INCRBY", key, -1*int64(value)))
 	return err
 }
 
