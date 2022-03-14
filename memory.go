@@ -139,6 +139,10 @@ func (bc *MemoryCache) Incr(key string) error {
 	return nil
 }
 
+func (bc *MemoryCache) IncrValue(key string, value uint64) error {
+	return nil
+}
+
 // Decr decrease counter in memory.
 func (bc *MemoryCache) Decr(key string) error {
 	bc.Lock()
@@ -175,6 +179,10 @@ func (bc *MemoryCache) Decr(key string) error {
 	default:
 		return errors.New("item val is not int int64 int32")
 	}
+	return nil
+}
+
+func (bc *MemoryCache) DecrValue(key string, value uint64) error {
 	return nil
 }
 

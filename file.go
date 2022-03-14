@@ -190,6 +190,10 @@ func (fc *FileCache) Incr(key string) error {
 	return nil
 }
 
+func (fc *FileCache) IncrValue(key string, value uint64) error {
+	return nil
+}
+
 // Decr will decrease cached int value.
 func (fc *FileCache) Decr(key string) error {
 	data := fc.Get(key)
@@ -200,6 +204,10 @@ func (fc *FileCache) Decr(key string) error {
 		decr = data.(int) - 1
 	}
 	fc.Put(key, decr, time.Duration(fc.EmbedExpiry))
+	return nil
+}
+
+func (fc *FileCache) DecrValue(key string, value uint64) error {
 	return nil
 }
 

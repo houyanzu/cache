@@ -128,6 +128,10 @@ func (rc *Cache) Incr(key string) error {
 	return err
 }
 
+func (rc *Cache) IncrValue(key string, value uint64) error {
+	return nil
+}
+
 // Decr decrease counter.
 func (rc *Cache) Decr(key string) error {
 	if rc.conn == nil {
@@ -137,6 +141,10 @@ func (rc *Cache) Decr(key string) error {
 	}
 	_, err := rc.conn.Do("incr", key, -1)
 	return err
+}
+
+func (rc *Cache) DecrValue(key string, value uint64) error {
+	return nil
 }
 
 // IsExist check value exists in memcache.
