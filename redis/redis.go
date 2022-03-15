@@ -161,8 +161,15 @@ func (rc *Cache) Decr(key string) error {
 }
 
 func (rc *Cache) DecrValue(key string, value interface{}) error {
-	_, err := redis.Bool(rc.do("INCRBY", key, fmt.Sprintf("-%x", value)))
-	return err
+	switch value.(type) {
+	case string:
+		_, err := redis.Bool(rc.do("INCRBY", key, fmt.Sprintf("-%s", value)))
+		return err
+	case uint64:
+		_, err := redis.Bool(rc.do("INCRBY", key, fmt.Sprintf("-%d", value)))
+		return err
+	}
+	return errors.New("wrong type")
 }
 
 // ClearAll clean all cache in redis. delete this redis collection.
