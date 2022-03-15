@@ -57,10 +57,10 @@ type Cache interface {
 	Delete(key string) error
 	// increase cached int value by key, as a counter.
 	Incr(key string) error
-	IncrValue(key string, value uint64) error
+	IncrValue(key string, value interface{}) error
 	// decrease cached int value by key, as a counter.
 	Decr(key string) error
-	DecrValue(key string, value uint64) error
+	DecrValue(key string, value interface{}) error
 	// check if cached value exists or not.
 	IsExist(key string) bool
 	// clear all cache.

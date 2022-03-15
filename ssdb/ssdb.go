@@ -128,7 +128,7 @@ func (rc *Cache) Incr(key string) error {
 	return err
 }
 
-func (rc *Cache) IncrValue(key string, value uint64) error {
+func (rc *Cache) IncrValue(key string, value interface{}) error {
 	return nil
 }
 
@@ -143,7 +143,7 @@ func (rc *Cache) Decr(key string) error {
 	return err
 }
 
-func (rc *Cache) DecrValue(key string, value uint64) error {
+func (rc *Cache) DecrValue(key string, value interface{}) error {
 	return nil
 }
 

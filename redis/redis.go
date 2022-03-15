@@ -149,7 +149,7 @@ func (rc *Cache) Incr(key string) error {
 	return err
 }
 
-func (rc *Cache) IncrValue(key string, value uint64) error {
+func (rc *Cache) IncrValue(key string, value interface{}) error {
 	_, err := redis.Bool(rc.do("INCRBY", key, value))
 	return err
 }
@@ -160,8 +160,8 @@ func (rc *Cache) Decr(key string) error {
 	return err
 }
 
-func (rc *Cache) DecrValue(key string, value uint64) error {
-	_, err := redis.Bool(rc.do("INCRBY", key, -1*int64(value)))
+func (rc *Cache) DecrValue(key string, value interface{}) error {
+	_, err := redis.Bool(rc.do("INCRBY", key, fmt.Sprintf("-%x", value)))
 	return err
 }
 

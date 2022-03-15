@@ -190,7 +190,7 @@ func (fc *FileCache) Incr(key string) error {
 	return nil
 }
 
-func (fc *FileCache) IncrValue(key string, value uint64) error {
+func (fc *FileCache) IncrValue(key string, value interface{}) error {
 	return nil
 }
 
@@ -207,7 +207,7 @@ func (fc *FileCache) Decr(key string) error {
 	return nil
 }
 
-func (fc *FileCache) DecrValue(key string, value uint64) error {
+func (fc *FileCache) DecrValue(key string, value interface{}) error {
 	return nil
 }
 

@@ -139,7 +139,7 @@ func (bc *MemoryCache) Incr(key string) error {
 	return nil
 }
 
-func (bc *MemoryCache) IncrValue(key string, value uint64) error {
+func (bc *MemoryCache) IncrValue(key string, value interface{}) error {
 	return nil
 }
 
@@ -182,7 +182,7 @@ func (bc *MemoryCache) Decr(key string) error {
 	return nil
 }
 
-func (bc *MemoryCache) DecrValue(key string, value uint64) error {
+func (bc *MemoryCache) DecrValue(key string, value interface{}) error {
 	return nil
 }
 
