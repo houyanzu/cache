@@ -20,13 +20,15 @@
 //
 // Usage:
 // import(
-//   _ "github.com/astaxie/beego/cache/redis"
-//   "github.com/astaxie/beego/cache"
+//
+//	_ "github.com/astaxie/beego/cache/redis"
+//	"github.com/astaxie/beego/cache"
+//
 // )
 //
-//  bm, err := cache.NewCache("redis", `{"conn":"127.0.0.1:11211"}`)
+//	bm, err := cache.NewCache("redis", `{"conn":"127.0.0.1:11211"}`)
 //
-//  more docs http://beego.me/docs/module/cache.md
+//	more docs http://beego.me/docs/module/cache.md
 package redis
 
 import (
@@ -118,7 +120,7 @@ func (rc *Cache) Put(key string, val interface{}, timeout time.Duration) error {
 
 func (rc *Cache) SetNX(key string, timeout time.Duration) (bool, error) {
 	//设置锁key-value和过期时间
-	_, err := redis.String(rc.do("SET", key, 1, "EX", timeout, "NX"))
+	_, err := redis.String(rc.do("SET", key, 1, "EX", int64(timeout/time.Second), "NX"))
 	if err != nil {
 		if err == redis.ErrNil {
 			return false, nil
